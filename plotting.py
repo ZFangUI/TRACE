@@ -682,8 +682,6 @@ def plot_pareto(all_results, alpha=0.1, title=None, save_path=None):
         "NF-Ball": "#e74c3c", "NF-NLL": "#c0392b",
         "Diff-Denoise": "#3498db", "FM-Path": "#2ecc71",
         "Diff-Quantile": "#5dade2", "FM-Quantile": "#58d68d",
-        "Diff-ODE-Ball": "#2980b9", "FM-ODE-Ball": "#27ae60",
-        "FM-ODE-NLL": "#1abc9c",
         "RCP": "#9b59b6", "NLE": "#8e44ad",
         "PCP-Diff": "#f39c12", "DistSplit": "#d35400",
         "CQR": "#e67e22", "MCQR": "#c0392b",
@@ -1329,7 +1327,6 @@ def plot_hurricane_map(predictors, x_point, y_orig_mean, y_orig_std,
     method_colors = {
         "NF-Ball": "red", "NF-NLL": "darkred",
         "Diff-Denoise": "blue", "FM-Path": "green",
-        "Diff-ODE-Ball": "navy", "FM-ODE-Ball": "darkgreen",
     }
 
     saved_files = []

@@ -17,8 +17,7 @@ from splitting import split_data
 from models.nf import NFModel
 from models.diffusion import ConditionalDDPM
 from models.flow_matching import ConditionalFlowMatching
-from scores import (NFBallScore, NFNLLScore, DiffusionDenoiseScore, FMPathScore,
-                    DiffODEBallScore, FMODEBallScore)
+from scores import (NFBallScore, NFNLLScore, DiffusionDenoiseScore, FMPathScore)
 from conformal import ConformalPredictor
 from training import train_nf, train_diffusion, train_flow_matching, clear_gpu
 from volume import mc_volume_grid
@@ -38,8 +37,7 @@ from plotting import (
     plot_hurricane_map,
 )
 
-ZSPACE_NAMES = ["NF-Ball", "NF-NLL", "Diff-Denoise", "FM-Path",
-                "Diff-ODE-Ball", "FM-ODE-Ball"]
+ZSPACE_NAMES = ["NF-Ball", "NF-NLL", "Diff-Denoise", "FM-Path"]
 
 BASELINE_NAMES = ["RCP", "NLE", "PCP-NF", "PCP-Diff", "PCP-FM",
                   "DistSplit", "CQR", "MCQR"]
@@ -49,8 +47,8 @@ ALL_METHODS = ZSPACE_NAMES + BASELINE_NAMES
 # Method → which model(s) it depends on
 METHOD_MODEL_MAP = {
     "NF-Ball": {"NF"}, "NF-NLL": {"NF"},
-    "Diff-Denoise": {"Diff"}, "Diff-ODE-Ball": {"Diff"},
-    "FM-Path": {"FM"}, "FM-ODE-Ball": {"FM"},
+    "Diff-Denoise": {"Diff"},
+    "FM-Path": {"FM"},
     "RCP": {"NF"}, "NLE": {"NF"},
     "DistSplit": {"NF"}, "CQR": {"NF"}, "MCQR": {"NF"},
     "PCP-NF": {"NF"}, "PCP-Diff": {"Diff"}, "PCP-FM": {"FM"},
@@ -372,12 +370,6 @@ def _single_run(cfg, seed, device, outdir, verbose, rep_idx=0):
             n_timesteps=cfg.fm_score_timesteps,
             n_repeats=cfg.fm_score_repeats,
             seed=cfg.seed),
-        "Diff-ODE-Ball": lambda: DiffODEBallScore(
-            diff_model, device,
-            n_steps=cfg.diff_ode_steps),
-        "FM-ODE-Ball":  lambda: FMODEBallScore(
-            fm_model, device,
-            n_steps=cfg.fm_ode_steps),
     }
 
     score_fns = {}
@@ -447,8 +439,8 @@ def _single_run(cfg, seed, device, outdir, verbose, rep_idx=0):
 
     _method_gen_model = {
         "NF-Ball": nf_model, "NF-NLL": nf_model,
-        "Diff-Denoise": diff_model, "Diff-ODE-Ball": diff_model,
-        "FM-Path": fm_model, "FM-ODE-Ball": fm_model,
+        "Diff-Denoise": diff_model,
+        "FM-Path": fm_model,
     }
 
     for sn in predictors:
@@ -796,10 +788,6 @@ def _rerun_methods_single(cfg, seed, device, outdir, verbose, rep_idx,
             n_timesteps=cfg.fm_score_timesteps,
             n_repeats=cfg.fm_score_repeats,
             seed=cfg.seed),
-        "Diff-ODE-Ball": lambda: DiffODEBallScore(
-            diff_model, device, n_steps=cfg.diff_ode_steps),
-        "FM-ODE-Ball": lambda: FMODEBallScore(
-            fm_model, device, n_steps=cfg.fm_ode_steps),
     }
 
     # Z-space methods to rerun
@@ -832,8 +820,8 @@ def _rerun_methods_single(cfg, seed, device, outdir, verbose, rep_idx,
 
     _rerun_gen_model = {
         "NF-Ball": nf_model, "NF-NLL": nf_model,
-        "Diff-Denoise": diff_model, "Diff-ODE-Ball": diff_model,
-        "FM-Path": fm_model, "FM-ODE-Ball": fm_model,
+        "Diff-Denoise": diff_model,
+        "FM-Path": fm_model,
     }
 
     for sn in zspace_rerun:
@@ -1490,7 +1478,7 @@ if __name__ == "__main__":
     p.add_argument("--methods", type=str, default=None,
                    help='Comma-separated methods to run, e.g. "NF-Ball,FM-Path,RCP". '
                         'Default: all methods. Available Z-space: NF-Ball, NF-NLL, '
-                        'Diff-Denoise, FM-Path, Diff-ODE-Ball, FM-ODE-Ball. '
+                        'Diff-Denoise, FM-Path. '
                         'Available baselines: RCP, NLE, PCP-NF, PCP-Diff, PCP-FM, '
                         'DistSplit, CQR, MCQR')
     p.add_argument("--quiet", action="store_true")
@@ -1526,7 +1514,6 @@ if __name__ == "__main__":
     p.add_argument("--diff_sample_steps", type=int, default=None)
     p.add_argument("--diff_score_timesteps", type=int, default=None)
     p.add_argument("--diff_score_repeats", type=int, default=None)
-    p.add_argument("--diff_ode_steps", type=int, default=None)
 
     # FM
     p.add_argument("--fm_epochs", type=int, default=None)
@@ -1540,7 +1527,6 @@ if __name__ == "__main__":
     p.add_argument("--fm_sample_steps", type=int, default=None)
     p.add_argument("--fm_score_timesteps", type=int, default=None)
     p.add_argument("--fm_score_repeats", type=int, default=None)
-    p.add_argument("--fm_ode_steps", type=int, default=None)
 
     # Mode Attraction
     p.add_argument("--ma_n_steps", type=int, default=None)

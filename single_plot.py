@@ -34,7 +34,7 @@ RENAME = {
     "FM-Path": "TRACE-FM",
 }
 
-EXCLUDE = {"DistSplit", "Diff-ODE-Ball", "FM-ODE-Ball", "CQR"}
+EXCLUDE = {"DistSplit", "CQR"}
 
 ORDER = ["TRACE-Diff", "TRACE-FM", "CONTRA", "JAPAN", "PCP-Diff", "MCQR", "RCP", "NLE"]
 

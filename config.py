@@ -1,7 +1,7 @@
 """
 Central configuration for conformal_generative experiments.
 
-6 methods: NF-Ball, NF-NLL, Diff-Denoise, FM-Path, Diff-ODE-Ball, FM-ODE-Ball
+4 methods: NF-Ball, NF-NLL, Diff-Denoise, FM-Path
 """
 
 from dataclasses import dataclass, asdict, field
@@ -46,7 +46,6 @@ class Config:
     diff_sample_steps: int = 100
     diff_score_timesteps: int = 15
     diff_score_repeats: int = 8
-    diff_ode_steps: int = 50               # DDIM encode steps for ODE-Ball
 
     # ── Flow Matching (OT-CFM) ──
     fm_n_blocks: int = 8
@@ -60,7 +59,6 @@ class Config:
     fm_sample_steps: int = 100
     fm_score_timesteps: int = 15
     fm_score_repeats: int = 8
-    fm_ode_steps: int = 50                 # ODE encode steps for ODE-Ball
 
     # ── Training (shared) ──
     batch_size: int = 512
@@ -97,7 +95,6 @@ class Config:
     #   ["NF-Ball", "FM-Path"]            → only these two Z-space methods
     #   ["NF-Ball", "RCP", "PCP-Diff"]    → mix of Z-space and baselines
     # Available Z-space:  NF-Ball, NF-NLL, Diff-Denoise, FM-Path,
-    #                     Diff-ODE-Ball, FM-ODE-Ball
     # Available baselines: RCP, NLE, PCP-NF, PCP-Diff, PCP-FM,
     #                      DistSplit, CQR, MCQR
     # Models are auto-trained only when needed by the selected methods.
