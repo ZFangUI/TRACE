@@ -28,10 +28,7 @@ from baselines import (
 from plotting import (
     plot_prediction_regions_with_eval,
     plot_comparison_bars,
-    plot_score_distributions,
     plot_sample_quality,
-    plot_results_table,
-    plot_pareto,
     plot_repeats_violin,
     plot_taxi_map,
     plot_hurricane_map,
@@ -1264,19 +1261,6 @@ def run_experiment(cfg=None, **kwargs):
             title=f"{cfg.dataset} — {cfg.n_repeats} Repeats",
             save_path=os.path.join(outdir, f"{cfg.dataset}_repeats_violin.png"))
 
-    # Table + Pareto: generate for single runs (works with resumed results too)
-    if cfg.n_repeats == 1 and all_results:
-        plot_results_table(
-            all_results, alpha=cfg.alpha,
-            title=f"{cfg.dataset} — Results (α={cfg.alpha})",
-            save_path=os.path.join(outdir, f"{cfg.dataset}_table.png"),
-            time_dict=time_dict)
-
-        plot_pareto(
-            all_results, alpha=cfg.alpha,
-            title=f"{cfg.dataset} — Coverage vs Volume Pareto",
-            save_path=os.path.join(outdir, f"{cfg.dataset}_pareto.png"))
-
     if do_plot:
         if verbose:
             print(f"\n[P] Generating plots ...")
@@ -1369,15 +1353,6 @@ def run_experiment(cfg=None, **kwargs):
             all_results,
             title=f"{cfg.dataset} -- Method Comparison",
             save_path=os.path.join(outdir, f"{cfg.dataset}_comparison.png"))
-
-        # Score distributions (Z-space only)
-        zspace_res = {n: all_results[n] for n in ZSPACE_NAMES
-                      if n in all_results}
-        if zspace_res:
-            plot_score_distributions(
-                zspace_res, alpha=cfg.alpha,
-                title=f"{cfg.dataset} -- Score Distributions",
-                save_path=os.path.join(outdir, f"{cfg.dataset}_scores.png"))
 
     # ── Save results ──
     elapsed = time.time() - t0
