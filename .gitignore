@@ -1,0 +1,34 @@
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+
+# Experiment artifacts
+# Keep only repeat-level metrics, ignore other repeat artifacts
+experiments/**/repeat_*/
+!experiments/**/repeat_*/
+experiments/**/repeat_*/**
+!experiments/**/repeat_*/results.json
+
+# Model weights
+*.pt

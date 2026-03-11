@@ -1,0 +1,100 @@
+{
+  "NF-Ball": {
+    "coverage": 0.90788,
+    "tau": 10.892176,
+    "score_mean": 2706.015869,
+    "score_std": 81024.6875,
+    "volume": 29.376941
+  },
+  "NF-NLL": {
+    "coverage": 0.90788,
+    "tau": -9.358898,
+    "score_mean": 1337.463135,
+    "score_std": 40512.601562,
+    "volume": 8.839536
+  },
+  "Diff-Denoise": {
+    "coverage": 0.902331,
+    "tau": 0.257179,
+    "score_mean": 0.440706,
+    "score_std": 8.336026,
+    "volume": 2.389405
+  },
+  "FM-Path": {
+    "coverage": 0.9101,
+    "tau": 0.444857,
+    "score_mean": 0.92646,
+    "score_std": 18.801569,
+    "volume": 1.731758
+  },
+  "Diff-ODE-Ball": {
+    "coverage": 0.90677,
+    "tau": 4.772037,
+    "score_mean": 4.544728,
+    "score_std": 68.232368,
+    "volume": 2.156466
+  },
+  "FM-ODE-Ball": {
+    "coverage": 0.893452,
+    "tau": 11.709492,
+    "score_mean": 6.439235,
+    "score_std": 21.620075,
+    "volume": 29.323823
+  },
+  "RCP": {
+    "coverage": 0.903441,
+    "tau": 0.076482,
+    "volume": 105523829.61813,
+    "score_mean": 0.03951,
+    "score_std": 0.145415
+  },
+  "NLE": {
+    "coverage": 0.903441,
+    "tau": 0.71721,
+    "volume": 367538889.733868,
+    "score_mean": 0.321391,
+    "score_std": 0.38573
+  },
+  "PCP-Diff": {
+    "coverage": 0.90677,
+    "tau": 0.020113,
+    "volume": 2.444571,
+    "score_mean": 0.039123,
+    "score_std": 0.854827
+  },
+  "DistSplit": {
+    "coverage": 0.91121,
+    "tau": 0.0,
+    "volume": 11767.257992,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "CQR": {
+    "coverage": 0.914539,
+    "tau": 0.032972,
+    "volume": 92.179282,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "MCQR": {
+    "coverage": 0.893452,
+    "tau": 0.027741,
+    "volume": 83.542366,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "_time_seconds": {
+    "NF-Ball": 0.32,
+    "NF-NLL": 0.32,
+    "Diff-Denoise": 12.95,
+    "FM-Path": 15.8,
+    "Diff-ODE-Ball": 10.02,
+    "FM-ODE-Ball": 15.51,
+    "RCP": 0.0,
+    "NLE": 0.97,
+    "PCP-Diff": 82.81,
+    "DistSplit": 0.09,
+    "CQR": 0.09,
+    "MCQR": 0.59
+  }
+}

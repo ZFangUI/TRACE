@@ -1,0 +1,100 @@
+{
+  "NF-Ball": {
+    "coverage": 0.904333,
+    "tau": 6.900624,
+    "score_mean": 3.332592,
+    "score_std": 3.364664,
+    "volume": 85.137096
+  },
+  "NF-NLL": {
+    "coverage": 0.900333,
+    "tau": -3.092872,
+    "score_mean": -4.740258,
+    "score_std": 1.64774,
+    "volume": 77.108611
+  },
+  "Diff-Denoise": {
+    "coverage": 0.901,
+    "tau": 0.12637,
+    "score_mean": 0.09117,
+    "score_std": 0.036904,
+    "volume": 44.802027
+  },
+  "FM-Path": {
+    "coverage": 0.906667,
+    "tau": 0.206547,
+    "score_mean": 0.132223,
+    "score_std": 0.064819,
+    "volume": 40.031653
+  },
+  "Diff-ODE-Ball": {
+    "coverage": 0.902667,
+    "tau": 3.285049,
+    "score_mean": 1.422551,
+    "score_std": 1.644948,
+    "volume": 52.108093
+  },
+  "FM-ODE-Ball": {
+    "coverage": 0.903,
+    "tau": 6.044108,
+    "score_mean": 2.56831,
+    "score_std": 3.474284,
+    "volume": 51.236374
+  },
+  "RCP": {
+    "coverage": 0.901,
+    "tau": 6.695522,
+    "volume": 75.591713,
+    "score_mean": 3.570372,
+    "score_std": 4.806153
+  },
+  "NLE": {
+    "coverage": 0.903333,
+    "tau": 2.474637,
+    "volume": 76.391942,
+    "score_mean": 1.630224,
+    "score_std": 0.804008
+  },
+  "PCP-Diff": {
+    "coverage": 0.901,
+    "tau": 0.007307,
+    "volume": 51.481872,
+    "score_mean": 0.00402,
+    "score_std": 0.006117
+  },
+  "DistSplit": {
+    "coverage": 0.896667,
+    "tau": 0.0,
+    "volume": 91.541349,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "CQR": {
+    "coverage": 0.902667,
+    "tau": 0.026808,
+    "volume": 86.14149,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "MCQR": {
+    "coverage": 0.898667,
+    "tau": 0.026284,
+    "volume": 83.80165,
+    "score_mean": 0.0,
+    "score_std": 0.0
+  },
+  "_time_seconds": {
+    "NF-Ball": 0.1,
+    "NF-NLL": 0.1,
+    "Diff-Denoise": 40.66,
+    "FM-Path": 62.53,
+    "Diff-ODE-Ball": 6.51,
+    "FM-ODE-Ball": 11.02,
+    "RCP": 0.0,
+    "NLE": 3.69,
+    "PCP-Diff": 321.5,
+    "DistSplit": 0.07,
+    "CQR": 0.11,
+    "MCQR": 0.45
+  }
+}
